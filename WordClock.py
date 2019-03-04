@@ -7,12 +7,14 @@ import time
 
 from console import fg
 
+import adafruit_dotstar as dotstar
+
 # time letter array
 letters = ['I', 'T', 'L', 'I', 'S', 'E', 'J', 'U', 'S', 'T', 'L', 'O', 'B', 'E', 'F', 'O', 'R', 'E', 'V', 'A', 'F', 'T', 'E', 'R', 'Q', 'U', 'A', 'R', 'T', 'E', 'R', 'E', 'H', 'A', 'L', 'F', 'T', 'W', 'E', 'N', 'T', 'Y', 'S', 'F', 'I', 'V', 'E', 'A', 'D', 'T', 'E', 'N', 'R', 'M', 'I', 'N', 'U', 'T', 'E', 'S', 'P', 'A', 'S', 'T', 'T',
            'O', 'I', 'T', 'H', 'R', 'E', 'E', 'O', 'N', 'E', 'L', 'T', 'W', 'O', 'S', 'E', 'V', 'E', 'N', 'F', 'O', 'U', 'R', 'F', 'I', 'V', 'E', 'N', 'I', 'N', 'E', 'S', 'I', 'X', 'A', 'E', 'I', 'G', 'H', 'T', 'T', 'E', 'N', 'E', 'L', 'E', 'V', 'E', 'N', 'T', 'W', 'E', 'L', 'V', 'E', 'O’', 'C', 'L', 'O', 'C', 'K', 'N', 'A', 'M', 'J', 'P', 'M']
 
 # matrix layout
-ROW_LENGTH = 12
+COLS = 12
 ROWS = 11
 
 # time words
@@ -53,22 +55,9 @@ words = [c_it, c_is, c_just, c_before, c_after, c_a, c_quarter, c_half, c_twenty
 minRound = 3
 
 
-def print_matrix(selectedLetters):
-    for i in range(ROWS):
-        for j in range(ROW_LENGTH):
-            idx = i * ROW_LENGTH + j
-            if(idx in selectedLetters):
-                print(fg.red + letters[idx], end=' ')
-            else:
-                print(fg.white + letters[idx], end=' ')
-        print('')
-
-    print(fg.white)
-
-
 # class to calculate the current time in words
-class WorldClock:
-    def __init__(self, currentLocalTimeStruct):
+class WordClock:
+    def __init__(self, currentLocalTimeStruct, rows, cols):
         self._it = c_it
         self._iz = c_is
         self._just = []
@@ -83,6 +72,11 @@ class WorldClock:
         self._currentHour = self._current24Hour
         self._currentMinute = currentLocalTimeStruct[4]
         self._calculate_words()
+        self._rows = rows
+        self._cols = cols
+
+    def array_length(self):
+        return self._cols * self._rows
 
     # get the letter array
     def get_letter_array(self):
@@ -110,6 +104,19 @@ class WorldClock:
         for w in words:
             if(w != ''):
                 print(w)
+
+    # print the clock
+    def print_matrix(self, selectedLetters):
+        for i in range(self._rows):
+            for j in range(self._cols):
+                idx = i * self._cols + j
+                if(idx in selectedLetters):
+                    print(fg.red + letters[idx], end=' ')
+                else:
+                    print(fg.white + letters[idx], end=' ')
+            print('')
+
+        print(fg.white)
 
     # calculate the words for the current time
 
@@ -190,8 +197,9 @@ class WorldClock:
     # am/pm
     def _get_am_pm(self):
         self._amPmWord = c_am
+        mins = self._current24Hour * 60 + self._currentMinute
 
-        if(self._current24Hour > 12):
+        if(mins >= 11 * 60 + 30 and mins < 23 * 60 + 30):
             self._amPmWord = c_pm
 
         if(self._currentMinute > 30 + minRound):
@@ -200,6 +208,7 @@ class WorldClock:
             self._currentHour = self._current24Hour % 12
 
     # hour
+
     def _get_hour(self):
         switcher = {
             0: c_twelve,
@@ -217,3 +226,35 @@ class WorldClock:
             12: c_twelve
         }
         self._hour = switcher[self._currentHour]
+
+    # Copies the the letter array to the led array. Specify the layout pattern
+    #  of the LEDs as well as the number of columns per row.
+    def copy_to_pixels(self, leds: dotstar.DotStar, color, colors=[], pattern='repeat'):
+        leds.fill(0)  # blank out
+        letterIndices = self.get_letter_array()
+        useColors = (len(colors) >= leds._n)
+
+        if(pattern.lower() == 'repeat'):
+            for letter in letterIndices:
+                if(useColors):
+                    leds[letter] = colors[letter]
+                else:
+                    leds[letter] = color
+
+        if(pattern.lower() == 'snake'):
+            for letter in letterIndices:
+                row = letter // self._cols  # zero-based row number
+                if(row % 2 == 0):
+                    # even rows it is standard index
+                    newIndex = letter
+                else:
+                    # odd rows need to reverse and count right-to-left
+                    rowDelta = letter % self._cols
+                    newIndex = row * self._cols + (self._cols - rowDelta - 1)
+
+                if(useColors):
+                    leds[newIndex] = colors[newIndex]
+                else:
+                    leds[newIndex] = color
+
+        return
