@@ -1,0 +1,25 @@
+table.clock {
+  background-color: black;
+  width: 300px;
+  height: 300px
+}
+
+
+table.clock td {
+  align-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: white
+}
+
+table.clock td.selected {
+  color: red;
+}
+
+input.colorInput {
+  width: 50px;
+  height: 50px;
+  border: solid 1px grey;
+  cursor: pointer;
+  text-decoration: none;
+}

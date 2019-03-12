@@ -1,0 +1,192 @@
+<h1>Settings</h1>
+<p>Congratulations! Your Word Clock is running successfully on your Raspberry
+  Pi. You can customize some options of your clock on this page.</p>
+<p>Choose Your Clock Color:<br>
+
+  <input [(colorPicker)]="selectedColor"
+         [style.background]="selectedColor"
+         class="colorInput" />
+
+</p>
+
+<table class="clock">
+  <tr>
+    <td></td>
+    <td [style.color]="selectedColor">I</td>
+    <td [style.color]="selectedColor">T</td>
+    <td>L</td>
+    <td [style.color]="selectedColor">I</td>
+    <td [style.color]="selectedColor">S</td>
+    <td>E</td>
+    <td [style.color]="selectedColor">J</td>
+    <td [style.color]="selectedColor">U</td>
+    <td [style.color]="selectedColor">S</td>
+    <td [style.color]="selectedColor">T</td>
+    <td>L</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>B</td>
+    <td>E</td>
+    <td>F</td>
+    <td>O</td>
+    <td>R</td>
+    <td>E</td>
+    <td>V</td>
+    <td [style.color]="selectedColor">A</td>
+    <td [style.color]="selectedColor">F</td>
+    <td [style.color]="selectedColor">T</td>
+    <td [style.color]="selectedColor">E</td>
+    <td [style.color]="selectedColor">R</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Q</td>
+    <td>U</td>
+    <td>A</td>
+    <td>R</td>
+    <td>T</td>
+    <td>E</td>
+    <td>R</td>
+    <td>E</td>
+    <td>H</td>
+    <td>A</td>
+    <td>L</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>T</td>
+    <td>W</td>
+    <td>E</td>
+    <td>N</td>
+    <td>T</td>
+    <td>Y</td>
+    <td>S</td>
+    <td [style.color]="selectedColor">F</td>
+    <td [style.color]="selectedColor">I</td>
+    <td [style.color]="selectedColor">V</td>
+    <td [style.color]="selectedColor">E</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D</td>
+    <td>T</td>
+    <td>E</td>
+    <td>N</td>
+    <td>R</td>
+    <td [style.color]="selectedColor">M</td>
+    <td [style.color]="selectedColor">I</td>
+    <td [style.color]="selectedColor">N</td>
+    <td [style.color]="selectedColor">U</td>
+    <td [style.color]="selectedColor">T</td>
+    <td [style.color]="selectedColor">E</td>
+    <td [style.color]="selectedColor">S</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>P</td>
+    <td>A</td>
+    <td>S</td>
+    <td>T</td>
+    <td [style.color]="selectedColor">T</td>
+    <td [style.color]="selectedColor">O</td>
+    <td>I</td>
+    <td>T</td>
+    <td>H</td>
+    <td>R</td>
+    <td>E</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>O</td>
+    <td>N</td>
+    <td>E</td>
+    <td>L</td>
+    <td>T</td>
+    <td>W</td>
+    <td>O</td>
+    <td [style.color]="selectedColor">S</td>
+    <td [style.color]="selectedColor">E</td>
+    <td [style.color]="selectedColor">V</td>
+    <td [style.color]="selectedColor">E</td>
+    <td [style.color]="selectedColor">N</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>F</td>
+    <td>O</td>
+    <td>U</td>
+    <td>R</td>
+    <td>F</td>
+    <td>I</td>
+    <td>V</td>
+    <td>E</td>
+    <td>N</td>
+    <td>I</td>
+    <td>N</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>S</td>
+    <td>I</td>
+    <td>X</td>
+    <td>A</td>
+    <td>E</td>
+    <td>I</td>
+    <td>G</td>
+    <td>H</td>
+    <td>T</td>
+    <td>T</td>
+    <td>E</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>E</td>
+    <td>L</td>
+    <td>E</td>
+    <td>V</td>
+    <td>E</td>
+    <td>N</td>
+    <td>T</td>
+    <td>W</td>
+    <td>E</td>
+    <td>L</td>
+    <td>V</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td [style.color]="selectedColor">O’</td>
+    <td [style.color]="selectedColor">C</td>
+    <td [style.color]="selectedColor">L</td>
+    <td [style.color]="selectedColor">O</td>
+    <td [style.color]="selectedColor">C</td>
+    <td [style.color]="selectedColor">K</td>
+    <td>N</td>
+    <td>A</td>
+    <td>M</td>
+    <td>J</td>
+    <td [style.color]="selectedColor">P</td>
+    <td [style.color]="selectedColor">M</td>
+  </tr>
+</table>
+
+<p>Current Selection:</p>
+<div class="btn-group"
+     role="group"
+     aria-label="Basic example">
+  <button type="button"
+          class="btn btn-secondary">Select Color</button>
+  <button type="button"
+          class="btn btn-secondary">Auto Color 1</button>
+  <button type="button"
+          class="btn btn-secondary">Auto Color 2</button>
+  <button type="button"
+          class="btn btn-secondary">Random</button>
+</div>
