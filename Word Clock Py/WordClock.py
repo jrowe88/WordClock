@@ -154,11 +154,13 @@ class WordClock:
     def _get_minutes(self):
         self._minutes = c_minutes
         self._toPast = c_past
+        self._oClock = []
         minute = self._currentMinute
         if (minute < minRound):
             self._minute = []
             self._toPast = []
             self._minutes = []
+            self._oClock = c_oclock
         elif (minute < 5 + minRound):
             self._minute = c_five
         elif (minute < 10 + minRound):
@@ -193,6 +195,7 @@ class WordClock:
             self._minute = []
             self._toPast = []
             self._minutes = []
+            self._oClock = c_oclock
 
     # am/pm
     def _get_am_pm(self):
@@ -221,7 +224,7 @@ class WordClock:
             7: c_seven,
             8: c_eight,
             9: c_nine,
-            10: c_ten,
+            10: c_ten2,
             11: c_eleven,
             12: c_twelve
         }

@@ -1,9 +1,9 @@
 <header>
-  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+  <nav class='navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light text-light bg-secondary border-bottom box-shadow mb-3'>
     <div class="container">
-      <a class="navbar-brand"
+      <a class="navbar-brand text-light "
          [routerLink]='["/"]'>Word Clock</a>
-      <button class="navbar-toggler"
+      <button class="navbar-toggler text-light "
               type="button"
               data-toggle="collapse"
               data-target=".navbar-collapse"
@@ -12,18 +12,18 @@
               (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-light "
            [ngClass]='{"show": isExpanded}'>
         <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
+          <li class="nav-item "
               [routerLinkActive]='["link-active"]'
               [routerLinkActiveOptions]='{ exact: true }'>
-            <a class="nav-link text-dark"
+            <a class="nav-link text-light "
                [routerLink]='["/"]'>Settings</a>
           </li>
           <li class="nav-item"
               [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark"
+            <a class="nav-link text-light "
                [routerLink]='["/about"]'>About</a>
           </li>
         </ul>

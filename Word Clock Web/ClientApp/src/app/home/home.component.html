@@ -1,192 +1,252 @@
-<h1>Settings</h1>
-<p>Congratulations! Your Word Clock is running successfully on your Raspberry
-  Pi. You can customize some options of your clock on this page.</p>
-<p>Choose Your Clock Color:<br>
+<div class="row">
+  <div class="col">
+    <h1>Settings</h1>
+    <p>
+      Congratulations! Your Word Clock is running successfully on your Raspberry
+      Pi. You can customize some options of your clock on this page.
+    </p>
+  </div>
+</div>
 
-  <input [(colorPicker)]="selectedColor"
-         [style.background]="selectedColor"
-         class="colorInput" />
+<div class="row">
+  <div class="col-4" style="width: 300px; min-width: 300px;">
+    <div class="form-group input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Color</label>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        [(colorPicker)]="selectedColor"
+        [style.background]="selectedColor"
+      />
+    </div>
+    <table class="clock">
+      <tr>
+        <td></td>
+        <td [style.color]="selectedColor">I</td>
+        <td [style.color]="selectedColor">T</td>
+        <td>L</td>
+        <td [style.color]="selectedColor">I</td>
+        <td [style.color]="selectedColor">S</td>
+        <td>E</td>
+        <td [style.color]="selectedColor">J</td>
+        <td [style.color]="selectedColor">U</td>
+        <td [style.color]="selectedColor">S</td>
+        <td [style.color]="selectedColor">T</td>
+        <td>L</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>B</td>
+        <td>E</td>
+        <td>F</td>
+        <td>O</td>
+        <td>R</td>
+        <td>E</td>
+        <td>V</td>
+        <td [style.color]="selectedColor">A</td>
+        <td [style.color]="selectedColor">F</td>
+        <td [style.color]="selectedColor">T</td>
+        <td [style.color]="selectedColor">E</td>
+        <td [style.color]="selectedColor">R</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Q</td>
+        <td>U</td>
+        <td>A</td>
+        <td>R</td>
+        <td>T</td>
+        <td>E</td>
+        <td>R</td>
+        <td>E</td>
+        <td>H</td>
+        <td>A</td>
+        <td>L</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>T</td>
+        <td>W</td>
+        <td>E</td>
+        <td>N</td>
+        <td>T</td>
+        <td>Y</td>
+        <td>S</td>
+        <td [style.color]="selectedColor">F</td>
+        <td [style.color]="selectedColor">I</td>
+        <td [style.color]="selectedColor">V</td>
+        <td [style.color]="selectedColor">E</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>D</td>
+        <td>T</td>
+        <td>E</td>
+        <td>N</td>
+        <td>R</td>
+        <td [style.color]="selectedColor">M</td>
+        <td [style.color]="selectedColor">I</td>
+        <td [style.color]="selectedColor">N</td>
+        <td [style.color]="selectedColor">U</td>
+        <td [style.color]="selectedColor">T</td>
+        <td [style.color]="selectedColor">E</td>
+        <td [style.color]="selectedColor">S</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>P</td>
+        <td>A</td>
+        <td>S</td>
+        <td>T</td>
+        <td [style.color]="selectedColor">T</td>
+        <td [style.color]="selectedColor">O</td>
+        <td>I</td>
+        <td>T</td>
+        <td>H</td>
+        <td>R</td>
+        <td>E</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>O</td>
+        <td>N</td>
+        <td>E</td>
+        <td>L</td>
+        <td>T</td>
+        <td>W</td>
+        <td>O</td>
+        <td [style.color]="selectedColor">S</td>
+        <td [style.color]="selectedColor">E</td>
+        <td [style.color]="selectedColor">V</td>
+        <td [style.color]="selectedColor">E</td>
+        <td [style.color]="selectedColor">N</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>F</td>
+        <td>O</td>
+        <td>U</td>
+        <td>R</td>
+        <td>F</td>
+        <td>I</td>
+        <td>V</td>
+        <td>E</td>
+        <td>N</td>
+        <td>I</td>
+        <td>N</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>S</td>
+        <td>I</td>
+        <td>X</td>
+        <td>A</td>
+        <td>E</td>
+        <td>I</td>
+        <td>G</td>
+        <td>H</td>
+        <td>T</td>
+        <td>T</td>
+        <td>E</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>E</td>
+        <td>L</td>
+        <td>E</td>
+        <td>V</td>
+        <td>E</td>
+        <td>N</td>
+        <td>T</td>
+        <td>W</td>
+        <td>E</td>
+        <td>L</td>
+        <td>V</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td [style.color]="selectedColor">O’</td>
+        <td [style.color]="selectedColor">C</td>
+        <td [style.color]="selectedColor">L</td>
+        <td [style.color]="selectedColor">O</td>
+        <td [style.color]="selectedColor">C</td>
+        <td [style.color]="selectedColor">K</td>
+        <td>N</td>
+        <td>A</td>
+        <td>M</td>
+        <td>J</td>
+        <td [style.color]="selectedColor">P</td>
+        <td [style.color]="selectedColor">M</td>
+      </tr>
+    </table>
+  </div>
 
-</p>
+  <div class="col-3">
+    <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Clock Pin</label>
+        </div>
+        <input
+          formControlName="clockPin"
+          type="text"
+          class="form-control"
+          id="clockPin"
+          name="clockPin"
+        />
+      </div>
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Data Pin</label>
+        </div>
+        <input
+          type="text"
+          formControlName="dataPin"
+          class="form-control"
+          id="dataPin"
+          name="dataPin"
+        />
+      </div>
 
-<table class="clock">
-  <tr>
-    <td></td>
-    <td [style.color]="selectedColor">I</td>
-    <td [style.color]="selectedColor">T</td>
-    <td>L</td>
-    <td [style.color]="selectedColor">I</td>
-    <td [style.color]="selectedColor">S</td>
-    <td>E</td>
-    <td [style.color]="selectedColor">J</td>
-    <td [style.color]="selectedColor">U</td>
-    <td [style.color]="selectedColor">S</td>
-    <td [style.color]="selectedColor">T</td>
-    <td>L</td>
-    <td>O</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>B</td>
-    <td>E</td>
-    <td>F</td>
-    <td>O</td>
-    <td>R</td>
-    <td>E</td>
-    <td>V</td>
-    <td [style.color]="selectedColor">A</td>
-    <td [style.color]="selectedColor">F</td>
-    <td [style.color]="selectedColor">T</td>
-    <td [style.color]="selectedColor">E</td>
-    <td [style.color]="selectedColor">R</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Q</td>
-    <td>U</td>
-    <td>A</td>
-    <td>R</td>
-    <td>T</td>
-    <td>E</td>
-    <td>R</td>
-    <td>E</td>
-    <td>H</td>
-    <td>A</td>
-    <td>L</td>
-    <td>F</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>T</td>
-    <td>W</td>
-    <td>E</td>
-    <td>N</td>
-    <td>T</td>
-    <td>Y</td>
-    <td>S</td>
-    <td [style.color]="selectedColor">F</td>
-    <td [style.color]="selectedColor">I</td>
-    <td [style.color]="selectedColor">V</td>
-    <td [style.color]="selectedColor">E</td>
-    <td>A</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>D</td>
-    <td>T</td>
-    <td>E</td>
-    <td>N</td>
-    <td>R</td>
-    <td [style.color]="selectedColor">M</td>
-    <td [style.color]="selectedColor">I</td>
-    <td [style.color]="selectedColor">N</td>
-    <td [style.color]="selectedColor">U</td>
-    <td [style.color]="selectedColor">T</td>
-    <td [style.color]="selectedColor">E</td>
-    <td [style.color]="selectedColor">S</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>P</td>
-    <td>A</td>
-    <td>S</td>
-    <td>T</td>
-    <td [style.color]="selectedColor">T</td>
-    <td [style.color]="selectedColor">O</td>
-    <td>I</td>
-    <td>T</td>
-    <td>H</td>
-    <td>R</td>
-    <td>E</td>
-    <td>E</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>O</td>
-    <td>N</td>
-    <td>E</td>
-    <td>L</td>
-    <td>T</td>
-    <td>W</td>
-    <td>O</td>
-    <td [style.color]="selectedColor">S</td>
-    <td [style.color]="selectedColor">E</td>
-    <td [style.color]="selectedColor">V</td>
-    <td [style.color]="selectedColor">E</td>
-    <td [style.color]="selectedColor">N</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>F</td>
-    <td>O</td>
-    <td>U</td>
-    <td>R</td>
-    <td>F</td>
-    <td>I</td>
-    <td>V</td>
-    <td>E</td>
-    <td>N</td>
-    <td>I</td>
-    <td>N</td>
-    <td>E</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>S</td>
-    <td>I</td>
-    <td>X</td>
-    <td>A</td>
-    <td>E</td>
-    <td>I</td>
-    <td>G</td>
-    <td>H</td>
-    <td>T</td>
-    <td>T</td>
-    <td>E</td>
-    <td>N</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>E</td>
-    <td>L</td>
-    <td>E</td>
-    <td>V</td>
-    <td>E</td>
-    <td>N</td>
-    <td>T</td>
-    <td>W</td>
-    <td>E</td>
-    <td>L</td>
-    <td>V</td>
-    <td>E</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td [style.color]="selectedColor">O’</td>
-    <td [style.color]="selectedColor">C</td>
-    <td [style.color]="selectedColor">L</td>
-    <td [style.color]="selectedColor">O</td>
-    <td [style.color]="selectedColor">C</td>
-    <td [style.color]="selectedColor">K</td>
-    <td>N</td>
-    <td>A</td>
-    <td>M</td>
-    <td>J</td>
-    <td [style.color]="selectedColor">P</td>
-    <td [style.color]="selectedColor">M</td>
-  </tr>
-</table>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="option">Mode</label>
+        </div>
+        <select class="custom-select" id="option" formControlName="option">
+          <option value="fixed" ng-selected="selectedOption == 'fixed'"
+            >Fixed Color</option
+          >
+          <option value="color1" ng-selected="selectedOption == 'color1'"
+            >Auto Color 1</option
+          >
+          <option value="color2" ng-selected="selectedOption == 'color2'"
+            >Auto Color 2</option
+          >
+        </select>
+      </div>
+      &nbsp;<br />
+      <input type="hidden" formControlName="color" id="color" name="color" />
+      <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+  </div>
+</div>
 
-<p>Current Selection:</p>
-<div class="btn-group"
-     role="group"
-     aria-label="Basic example">
-  <button type="button"
-          class="btn btn-secondary">Select Color</button>
-  <button type="button"
-          class="btn btn-secondary">Auto Color 1</button>
-  <button type="button"
-          class="btn btn-secondary">Auto Color 2</button>
-  <button type="button"
-          class="btn btn-secondary">Random</button>
+<div class="alert-bottom">
+  <ngb-alert
+    *ngIf="savedMessage"
+    [dismissible]="false"
+    type="success"
+    (close)="savedMessage = null"
+  >
+    <strong>Updated!</strong> Values will be updated on the next clock cycle.
+  </ngb-alert>
 </div>

@@ -1,4 +1,2 @@
-
-SCLK = 1
-
-MOSI = 2
+SCLK = 11
+MOSI = 10
